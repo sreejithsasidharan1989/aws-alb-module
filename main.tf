@@ -4,7 +4,7 @@ resource "aws_lb" "alb" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
   subnets            = [for subnet in var.subnet_ids : subnet]
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   tags = {
     Name = "${var.environment}-${var.project}"
