@@ -15,6 +15,9 @@ resource "aws_lb_target_group" "alb_tg" {
   protocol = "HTTP"
   port     = 80
   vpc_id   = var.vpc_id
+  health_check {
+    matcher = "200,301,302"
+  }
 }
 
 resource "aws_lb_listener" "http" {
